@@ -27,8 +27,7 @@ class KodakKar:
         self.car = Kar(self)
         self.background = BackGround(self)
         self.bullets = pygame.sprite.Group()
-        self.npc_cars = pygame.sprite.Group()
-        self._create_fleet()
+        
           
     def run_game(self): 
         """Start the main loop for the game."""
@@ -81,7 +80,6 @@ class KodakKar:
         """Update images on the screen, and flip to the new screen."""
         self.background.blitme()
         self.car.blitme()
-        self.npc_cars.draw(self.screen)
         for bullet in self.bullets.sprites():
             bullet.draw_bullet()
         
@@ -107,8 +105,4 @@ class KodakKar:
                 self.bullets.remove(bullet)
                 
                 
-    def _create_fleet(self):
-        """Create the fleet of cars."""
-        # make an npc car
-        npc = NPC(self)
-        self.npc_cars.add(npc)
+   
