@@ -67,10 +67,7 @@ project/
 │
 └── run_game.py   (KodakKar class)
 ```
-
-Each file does **one job only**.
 ---
-
 ## Main Game Loop (`KodakKar`)
 
 The game runs inside a classic infinite loop:
@@ -91,27 +88,6 @@ while True:
     self.update_screen()
 ```
 
-Simple. Predictable. Debuggable.
-
----
-
-## Background System
-
-The background is a **vertically scrolling image** that resets after reaching a certain offset.
-
-Why a counter instead of checking exact Y values?
-Because Pygame floats + precision = pain.
-
-Key points:
-
-* Background image is taller than the screen
-* Moves downward continuously
-* Resets after a fixed number of frames
-
-This avoids seams and weird jumps.
-
----
-
 ## Audio
 
 * Background music auto-plays on startup
@@ -119,16 +95,6 @@ This avoids seams and weird jumps.
 * Marwan Moussa Song , Cause who does't listen to marwan moussa while driving
 
 ---
-
-## Design Decisions
-
-* No inheritance chains → readability > cleverness
-* Manual lane positions → better control over visuals
-* No physics engine → arcade feel
-* Simple assets → focus on mechanics, not graphics
-
----
-
 ## Known Limitations
 
 * No pause system
@@ -138,7 +104,6 @@ This avoids seams and weird jumps.
 * No animation system
 
 All of these are **intentional omissions**, not mistakes.
-
 ---
 
 ## How to Run
@@ -161,4 +126,4 @@ Make sure the `assets/` folder exists exactly as structured.
 ## Final Notes
 
 This project exists to **learn**, not to impress.
-It’s readable, modular, and actually understandable after stepping away for a week — which already puts it above half the junk on GitHub.
+It’s readable, modular, and actually understandable.
