@@ -16,11 +16,15 @@ class Setting:
         self.car_speed = 10
         self.car_width = 60 * self.scale
         self.car_height = 113 * self.scale
-        
+        # NPC Car Settings
+        self.npc_speed = 15
+        self.shoot = False
+       
         # Bullet settings
         self.bullet_speed = 20
         self.bullet_width = 33
         self.bullet_height = 59
         self.bullet_allowed = 1
+        
         
     

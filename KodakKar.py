@@ -27,13 +27,14 @@ class KodakKar:
         self.car = Kar(self)
         self.background = BackGround(self)
         self.bullets = pygame.sprite.Group()
-        
+        self.npcs = pygame.sprite.Group()
           
     def run_game(self): 
         """Start the main loop for the game."""
         while True:
             self.check_event()
             self.car.update()
+            self._update_npc()
             self._update_bullet()
             self.background.update()
             self.update_screen() 
@@ -49,9 +50,8 @@ class KodakKar:
             elif event.type == pygame.KEYDOWN:
                 self._check_keydown_events(event)
             elif event.type == pygame.KEYUP:
-                self._check_keyup_events(event)
-      
-      
+                self._check_keyup_events(event)   
+        
                                 
     def _check_keydown_events(self , event):
         """Respond to keypresses."""
@@ -64,9 +64,10 @@ class KodakKar:
         elif event.key == pygame.K_SPACE:
             if len(self.bullets) < self.settings.bullet_allowed:
                 self._fire_bullet()
+        elif event.key == pygame.K_t:
+            self._generate_npcs()
      
-     
-             
+            
     def _check_keyup_events(self , event):
        """Respond to key releases."""
        if event.key == pygame.K_RIGHT:
@@ -75,24 +76,32 @@ class KodakKar:
             self.car.moving_left = False
      
      
-                           
+                     
     def update_screen(self):
         """Update images on the screen, and flip to the new screen."""
         self.background.blitme()
         self.car.blitme()
+        
+        for npc in self.npcs.sprites():
+            npc.blitme()
+            
         for bullet in self.bullets.sprites():
             bullet.draw_bullet()
-        
         # Make the most recently drawn screen visible.
         pygame.display.flip()
-       
-       
         
+     
     def _fire_bullet(self):
         """Create a new bullet and add it to the bullets group."""
         new_bullet = Bullet(self)
         self.bullets.add(new_bullet)
+     
       
+    def _generate_npcs(self):
+        """Create a new npc and add it to the bullets group."""
+        new_npc = NPC(self)
+        self.npcs.add(new_npc)
+        print("Npc is generated")
       
       
     def _update_bullet(self):
@@ -103,6 +112,20 @@ class KodakKar:
         for bullet in self.bullets.copy():
             if bullet.bullet_rect.bottom <= 0:
                 self.bullets.remove(bullet)
+                
+                
+    def _update_npc(self):
+        """Update the position of the npc and git rid of old cars"""
+        # Update the npc position
+        self.npcs.update()
+        # get rid of the npc that dissaperared
+        for npc in self.npcs.copy():
+            if npc.npc_rect.y > self.car.car_rect.y + 100:
+                self.npcs.remove(npc)
+        
+                
+                
+    
                 
                 
    

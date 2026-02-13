@@ -15,7 +15,7 @@ class Kar:
        self.image = pygame.transform.scale(self.image,(self.setting.car_width,self.setting.car_height ))
        self.car_rect = self.image.get_rect()
        
-       #Start each new car at the bottom center of the screen.
+       #Start car at the bottom center of the screen.
        self.car_rect.midbottom = self.screen_rect.midbottom
        
        # Store a float for the ship's exact horizontal position.
