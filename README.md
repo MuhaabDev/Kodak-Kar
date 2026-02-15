@@ -1,4 +1,4 @@
-![Game](assets/kodak/git.png)
+![Game](assets/kodak/poster.png)
 # Kodak Kar — صناعه العبور
 
 ## Overview
@@ -6,7 +6,7 @@
 **Kodak Kars** is a simple arcade-style vertical car game built using **Python + Pygame**.
 You control a sports car driving on a multi-lane road, avoid incoming NPC cars, and shoot bullets to clear your path and score points.
 
-This project was made as a **learning-focused game**, The code prioritizes clarity and experimentation over perfection.
+This project was made as a **learning-focused game**.
 
 No AI was used while building this project.
 Yes, that matters.
@@ -126,4 +126,3 @@ Make sure the `assets/` folder exists exactly as structured.
 ## Final Notes
 
 This project exists to **learn**, not to impress.
-It’s readable, modular, and actually understandable.
