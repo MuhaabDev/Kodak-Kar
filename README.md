@@ -68,26 +68,6 @@ project/
 └── run_game.py   (KodakKar class)
 ```
 ---
-## Main Game Loop (`KodakKar`)
-
-The game runs inside a classic infinite loop:
-
-1. Handle events (keyboard, mouse, quit)
-2. Update game objects **only if the game is active**
-3. Draw everything
-4. Lock FPS at 60
-
-```python
-while True:
-    self.check_event()
-    if self.game_active:
-        self.background.update()
-        self.car.update()
-        self._update_npc()
-        self._update_bullet()
-    self.update_screen()
-```
-
 ## Audio
 
 * Background music auto-plays on startup
